@@ -1,4 +1,4 @@
-// Welcome message
+
 echo("=== RizScript Test Execution ===");
 
 // Even or Odd Checker
