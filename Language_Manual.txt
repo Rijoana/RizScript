@@ -1,0 +1,122 @@
+========================================================================
+                      RIZSCRIPT LANGUAGE MANUAL
+========================================================================
+
+Language Name: RizScript
+File Extension: .rz
+Author: Rijoana
+
+------------------------------------------------------------------------
+1. HOW TO COMPILE AND RUN
+------------------------------------------------------------------------
+Prerequisites:
+  - GCC (C Compiler)
+  - Flex (Lexical Analyzer)
+  - Bison (Parser Generator)
+
+Option A: Using Makefile (Recommended)
+  1. Open terminal in the project root directory.
+  2. Build the executable:
+       make
+  3. Run a script:
+       ./rizscript examples/simple_calc.rz
+
+Option B: Manual Compilation
+  1. Generate parser and lexer files:
+       bison -d src/parser.y -o parser.tab.c
+       flex -o lex.yy.c src/lexer.l
+  2. Compile source code:
+       gcc parser.tab.c lex.yy.c -o rizscript
+  3. Run a script:
+       ./rizscript examples/simple_calc.rz
+
+
+------------------------------------------------------------------------
+2. LANGUAGE SYNTAX GUIDE
+------------------------------------------------------------------------
+
+[A] Variable Declaration
+------------------------
+Variables are dynamically typed and declared using the 'let' keyword.
+Syntax:
+  let <variable_name> = <expression>;
+
+Example:
+  let count = 10;
+  let price = 50;
+
+
+[B] Input / Output (I/O)
+------------------------
+- Output: Print values or text using 'echo()'.
+    Syntax:  echo(<expression>);
+    Example: echo("Hello World");
+             echo(count);
+
+- Input: Take runtime input using 'ask()'.
+    Syntax:  let <variable> = ask("<prompt_message>");
+    Example: let age = ask("Enter your age: ");
+
+
+[C] Operators
+-------------
+- Arithmetic Operators:
+    +   Addition
+    -   Subtraction
+    *   Multiplication
+    /   Division
+
+- Logical & Comparison Operators:
+    ==  Equal to
+    !=  Not equal to
+    <   Less than
+    >   Greater than
+
+
+[D] Control Flow (Conditionals)
+-------------------------------
+Conditional execution is handled using 'check' (if) and 'otherwise' (else).
+
+Syntax:
+  check (<condition>) {
+      // code to execute if condition is true
+  } otherwise {
+      // code to execute if condition is false
+  }
+
+Example:
+  check (age > 18) {
+      echo("Eligible");
+  } otherwise {
+      echo("Not Eligible");
+  }
+
+
+[E] Loops
+---------
+Iterative statements support standard execution flow.
+
+Syntax (While Loop):
+  while (<condition>) {
+      // loop statements
+  }
+
+
+------------------------------------------------------------------------
+3. SAMPLE PROGRAM (examples/simple_calc.rz)
+------------------------------------------------------------------------
+echo("=== RizScript Calculator ===");
+let a = ask("Enter A: ");
+let b = ask("Enter B: ");
+let op = ask("Enter 1 for Add, 2 for Sub: ");
+
+check (op == 1) {
+    let sum = a + b;
+    echo("Result:");
+    echo(sum);
+} otherwise {
+    let sub = a - b;
+    echo("Result:");
+    echo(sub);
+}
+========================================================================
