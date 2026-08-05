@@ -1,2 +1,0 @@
-echo "*.l linguist-language=Lex" > .gitattributes
-echo "*.y linguist-language=Yacc" >> .gitattributes
