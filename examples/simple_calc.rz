@@ -1,0 +1,17 @@
+// Simple Calculator
+echo("=== RizScript Test Execution ===");
+echo("=== Simple Addition & Subtraction ===");
+let a = ask("Enter A: ");
+let b = ask("Enter B: ");
+let op = ask("Enter 1 for Add, 2 for Subtract: ");
+
+check (op == 1) {
+    let sum = a + b;
+    echo("Result:");
+    echo(sum);
+} otherwise {
+    let sub = a - b;
+    echo("Result:");
+    echo(sub);
+}
+echo("=== Complete ===");

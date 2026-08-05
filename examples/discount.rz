@@ -1,0 +1,12 @@
+echo("=== RizScript Test Execution ===");
+
+let price = ask("Enter total amount: ");
+
+check (price >= 100) {
+    echo("Discount Applied!");
+} otherwise {
+    echo("No Discount.");
+}
+
+
+echo("=== Complete ===");

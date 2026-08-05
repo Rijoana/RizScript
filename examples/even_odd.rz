@@ -1,0 +1,13 @@
+// Welcome message
+echo("=== RizScript Test Execution ===");
+
+// Even or Odd Checker
+let N = ask("Enter a number: ");
+let r = N % 2;
+
+check (r == 0) {
+    echo("The number is Even");
+} otherwise {
+    echo("The number is Odd");
+}
+echo("=== Complete ===");
